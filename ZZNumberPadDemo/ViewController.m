@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "ZZNumberPad.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end
 
@@ -16,8 +19,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.textField.inputView = [ZZNumberPad defaultNumberPad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.view endEditing:YES];
+}
 
 @end
